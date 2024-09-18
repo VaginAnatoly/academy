@@ -15,3 +15,5 @@ U
 %src/main/java/ru/academy/MyClass.java,7\a\7ade58a4f89e614528d3927e2126a7cc8e6555fb
 \
 ,src/main/java/ru/academy/MethodPriority.java,9\b\9b47d5894c929e9001b5d0f0a03ee5bd4b53abf1
+9
+	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
