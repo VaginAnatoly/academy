@@ -1,9 +1,0 @@
-
-–
-java:S1130"yRemove the declaration of thrown exception 'java.lang.ClassNotFoundException', as it cannot be thrown from method's body.(Ö×ş«8¿¶Î† 2
-c
-java:S2133"ARemove this object instantiation and use "MyClass.class" instead.(òÛ¢¬ûÿÿÿÿ8‹œóÌŸ2
-_
-java:S1128"=Remove this unused import 'ru.academy.annotation.AfterSuite'.(Üªîúÿÿÿÿ8Ã¶Î† 2
-[
-java:S1128">Remove this unused import 'ru.academy.annotation.BeforeSuite'.(×ñÏÕ8Ä¶Î† 2

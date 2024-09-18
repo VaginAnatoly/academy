@@ -1,16 +1,0 @@
-
-L
-java:S3740"/Provide the parametrized type for this generic.(ÌÜ»³8Úó×Ÿ 2
-o
-java:S1192"MDefine a constant instead of duplicating this literal "ĞœĞµÑ‚Ğ¾Ğ´: " 3 times.(İê–µıÿÿÿÿ8Ûó×Ÿ 2
-V
-java:S1118":Add a private constructor to hide the implicit public one.(Šµá+8»õ×Ÿ 2
-o
-java:S3776"RRefactor this method to reduce its Cognitive Complexity from 24 to the 15 allowed.(ÌÜ»³8¼õ×Ÿ 2
-L	java:S106"+Replace this use of System.out by a logger.(İê–µıÿÿÿÿ8Àõ×Ÿ 2
-G	java:S106"+Replace this use of System.out by a logger.(ÿŠúà8Áõ×Ÿ 2
-L	java:S106 "+Replace this use of System.out by a logger.(†•Ïçÿÿÿÿÿ8Âõ×Ÿ 2
-G	java:S106<"+Replace this use of System.out by a logger.(“àö–8Åõ×Ÿ 2
-L	java:S106D"+Replace this use of System.out by a logger.(İê–µıÿÿÿÿ8Åõ×Ÿ 2
-G	java:S106G"+Replace this use of System.out by a logger.(Ëî¼8Æõ×Ÿ 2
-G	java:S106J"+Replace this use of System.out by a logger.(¼ßîŒ8Çõ×Ÿ 2
