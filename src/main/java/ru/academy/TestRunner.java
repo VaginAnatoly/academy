@@ -3,6 +3,7 @@ package ru.academy;
 import ru.academy.annotation.AfterSuite;
 import ru.academy.annotation.BeforeSuite;
 import ru.academy.annotation.Test;
+import ru.academy.exceptions.AnnotationException;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -11,9 +12,9 @@ import java.util.*;
 
 public class TestRunner {
 
-    public static void runTests(Class c) throws InvocationTargetException, IllegalAccessException,InstantiationException, NoSuchMethodException {
+    public static void runTests(Class c) throws InvocationTargetException, IllegalAccessException, InstantiationException, NoSuchMethodException, AnnotationException {
         int countBeforeSuite = 0;
-        int conutAfterSuite = 0;
+        int countAfterSuite = 0;
 
         //Загружаем класс в память
         Object obj = c.getDeclaredConstructor().newInstance();
@@ -25,12 +26,9 @@ public class TestRunner {
             if (method.isAnnotationPresent(BeforeSuite.class)){
                 System.out.println("Метод: " + method.getName());
                 countBeforeSuite++;
-                if (method.getModifiers() != Modifier.STATIC) {
-                    System.out.println("Аннотация @BeforeSuite не может быть указана на методе " + method.getName() + " т.к он не являеться статическим");
-                }
-                if (countBeforeSuite > 1) {
-                    System.out.println("Методов помеченных аннотацией BeforeSuite больше чем один");
-                }
+
+                checkedAnnotation(method, countBeforeSuite, "BeforeSuite");
+
                 method.invoke(obj);
             }
         }
@@ -66,16 +64,27 @@ public class TestRunner {
         for (Method method : c.getDeclaredMethods()) {
             if (method.isAnnotationPresent(AfterSuite.class)){
                 System.out.println("Метод: " + method.getName());
-                conutAfterSuite++;
-                if (method.getModifiers() != Modifier.STATIC) {
-                    System.out.println(" Аннотация @AfterSuite не может быть указана на методе " + method.getName() + " т.к он не являеться статическим");
-                }
-                if (conutAfterSuite > 1) {
-                    System.out.println("Методов помеченных аннотацией AfterSuite больше чем один");
-                }
+                countAfterSuite++;
+               try {
+                   checkedAnnotation(method, countAfterSuite, "AfterSuite");
+               } catch (AnnotationException e) {
+                   System.out.println(e.getMessage());
+               }
+
+
                 method.invoke(obj);
             }
         }
 
+    }
+
+    private static void checkedAnnotation(Method method, int countBeforeSuite, String annotation) throws AnnotationException {
+        if (method.getModifiers() != Modifier.STATIC) {
+            throw new AnnotationException("Аннотация " + annotation + " не может быть указана на методе " + method.getName() + " т.к он не являеться статическим");
+        }
+        if (countBeforeSuite > 1) {
+            throw new AnnotationException("Методов помеченных аннотацией " + annotation + " больше чем один");
+
+        }
     }
 }
